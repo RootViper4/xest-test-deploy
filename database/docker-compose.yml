@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  xest-project-db:
+    container_name: xest-project-mysql-db
+    image: mysql:5.7
+    restart: always
+    command: --sql_mode="NO_ENGINE_SUBSTITUTION"
+    environment:
+      MYSQL_DATABASE: "xest_project_db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - vol-xest-project-db:/var/lib/mysql
+volumes:
+  vol-xest-project-db:
